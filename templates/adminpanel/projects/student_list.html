@@ -1,0 +1,23 @@
+<h2>Student List</h2>
+
+<table border="1">
+    <tr>
+        <th>Name</th>
+        <th>Project</th>
+        <th>Status</th>
+        <th>Action</th>
+    </tr>
+
+    {% for student in students %}
+    <tr>
+        <td>{{ student.college_name }}</td>
+        <td>{{ student.project_title }}</td>
+        <td>{{ student.status }}</td>
+        <td>
+            <a href="{% url 'student_detail' student.id %}">
+                View
+            </a>
+        </td>
+    </tr>
+    {% endfor %}
+</table>

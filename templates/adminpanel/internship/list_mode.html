@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    {% include 'adminpanel/bootrapp_load.html' %}
+
+    <title>Domains</title>
+
+    <style>
+.col-4{
+
+    background-color: aqua;
+
+    border: 2px solid;
+
+}
+
+.col-8{
+
+    background-color: antiquewhite;
+
+    border:2px solid;
+}
+
+    </style>
+</head>
+
+<body class="sb-nav-fixed bg-light">
+
+    <!-- Sidebar -->
+    {% include 'adminpanel/admin_sidebar.html' %}
+
+    <div id="layoutSidenav_content">
+
+    <main>
+
+        <div class="container-fluid px-4 mt-4">
+
+            <!-- Heading -->
+            <div class="d-flex justify-content-between align-items-center mb-4">    
+
+                <h2 class="fw-bold text-dark">
+                   Class Mode 
+                </h2>
+
+                <a href="" class="btn btn-dark">
+                    Add class Mode
+                </a>
+
+            </div>
+
+            <!-- Row -->
+            <div class="row">
+
+                <!-- Full Width Column -->
+                <div class="col-12">
+
+                    <!-- Card -->
+                    <div class="card shadow border-0 rounded-4">
+
+                        <div class="card-body">
+
+                            <div class="table-responsive">
+
+                                <table class="table table-hover table-bordered align-middle text-center">
+
+                                    <thead class="table-dark">
+
+                                        <tr>
+                                            <th>No</th>
+                                            <th>Domain Name</th>
+                                            <th>Update</th>
+                                            <th>Delete</th>
+                                        </tr>
+
+                                    </thead>
+
+                                    <tbody>
+
+                                        {% for mode in modes %}
+
+                                        <tr>
+
+                                            <td>{{ forloop.counter }}</td>
+
+                                            <td>{{ mode.mode_name}}</td>
+
+                                            <td>
+                                                <a href="{% url 'adminpanel:update_mode' mode.id %}"
+                                                   class="btn btn-warning btn-sm">
+                                                    Update
+                                                </a>
+                                            </td>
+
+                                            <td>
+                                                <a href="{% url 'adminpanel:delete_mode' mode.id %}"
+                                                   class="btn btn-danger btn-sm">
+                                                    Delete
+                                                </a>
+                                            </td>
+
+                                        </tr>
+
+                                        {% endfor %}
+
+                                    </tbody>
+
+                                </table>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+    
+
+        </div>
+
+    </main>
+
+</div>
+
+</body>
+</html>

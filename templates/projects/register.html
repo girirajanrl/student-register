@@ -1,0 +1,60 @@
+
+{% extends 'base.html' %}
+
+{% block content %}
+
+<body class="bg-light">
+
+<div class="container mt-5 mb-5 ">
+
+    <div class="row shadow bg-white rounded p-4">
+
+        <!-- Left Side Form -->
+        <div class="col-md-6 border-end">
+
+            <h2 class="mb-4 text-primary">Project Registration</h2>
+
+            <form method="POST">
+                {% csrf_token %}
+
+                {{ form.as_p }}
+
+                <button type="submit" class="btn btn-primary">
+                    Next
+                </button>
+            </form>
+
+        </div>
+
+        <!-- Right Side Content -->
+<!-- Right Side Content -->
+<div class="col-md-6 d-flex flex-column justify-content-center">
+
+    <h3 class="fw-bold text-primary mb-4">
+        About This Registration
+    </h3>
+
+    <p class="text-secondary">
+        Welcome to the project registration portal.
+        Fill all required details carefully.
+    </p>
+
+    <p class="text-secondary">
+        After submitting the form, your application
+        will be reviewed by the Developer team.
+    </p>
+
+    <p class="text-secondary">
+        Make sure uploaded documents are correct
+        before final submission.
+    </p>
+
+</div>
+
+    </div>
+
+</div>
+
+
+</body>
+{% endblock %}

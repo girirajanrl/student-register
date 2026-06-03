@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+{% block content %}
+
+
+<div class="container mt-5">
+
+    <div class="row shadow bg-white rounded p-4">
+
+        <!-- Left Side Form -->
+        <div class="col-md-6 border-end">
+
+            <h2 class="mb-4 text-primary">Internship Registration</h2>
+
+            <form method="POST">
+                {% csrf_token %}
+
+                {{ form.as_p }}
+           
+                <button type="submit" class="btn btn-primary">
+                    Next
+                </button>
+            </form>
+
+        </div>
+
+<!-- Right Side Content -->
+<div class="col-md-6 d-flex flex-column justify-content-center">
+
+    <h3 class="fw-bold text-primary mb-4">
+        About This Registration
+    </h3>
+
+    <p class="text-secondary">
+        Welcome to the Internship Courses registration portal.
+        Fill all required details carefully.
+    </p>
+
+    <p class="text-secondary">
+        After submitting the form, your application
+        will be reviewed by the admin team.
+    </p>
+
+    <p class="text-secondary">
+        Make sure uploaded documents are correct
+        before final submission.
+    </p>
+        <p class="text-secondary">
+        Our training programs are specially designed to
+        help students and professionals improve technical,
+        communication, and practical industry skills through
+        expert mentoring and real-time project experience.
+        Participants will gain valuable knowledge, hands-on
+        practice, teamwork experience, problem-solving ability,
+        and confidence required for career growth in modern
+        industries. The courses provide a supportive learning
+        environment with updated technologies and professional
+        guidance for future success.
+    </p>
+
+</div>
+
+    </div>
+
+</div>
+
+
+{% endblock %}

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Registration</title>
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <style>
+        body{
+            font-family: 'Poppins', sans-serif;
+        }
+    </style>
+</head>
+
+<body class="bg-gradient-to-br from-slate-900 via-blue-950 to-slate-900 min-h-screen flex items-center justify-center p-6">
+
+    <!-- Main Card -->
+    <div class="w-full max-w-3xl bg-white/10 backdrop-blur-xl border border-white/20 shadow-2xl rounded-3xl overflow-hidden">
+
+        <!-- Header -->
+        <div class="bg-gradient-to-r from-cyan-500 to-blue-600 p-8 text-white">
+            <h1 class="text-4xl font-bold">Project Registration</h1>
+            <p class="mt-2 text-blue-100">
+                Fill in your project details to complete registration
+            </p>
+        </div>
+
+        <!-- Form Section -->
+        <div class="p-10">
+
+            <form method="POST" class="space-y-6">
+                {% csrf_token %}
+
+                <!-- Django Form -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-white">
+
+                    {% for field in form %}
+                    <div class="{% if field.name == 'description' %}md:col-span-2{% endif %}">
+                        
+                        <label class="block mb-2 text-sm font-semibold text-gray-200">
+                            {{ field.label }}
+                        </label>
+
+                        {{ field }}
+
+                        {% if field.errors %}
+                            <p class="text-red-400 text-sm mt-1">
+                                {{ field.errors|striptags }}
+                            </p>
+                        {% endif %}
+                    </div>
+                    {% endfor %}
+
+                </div>
+
+                <!-- Submit Button -->
+                <div class="pt-4">
+                    <button type="submit"
+                        class="w-full bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-600 hover:to-blue-700 text-white py-4 rounded-xl text-lg font-semibold shadow-lg transition duration-300 transform hover:scale-[1.02]">
+                        Submit Registration
+                    </button>
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,30 @@
+<h2>Add Payment</h2>
+
+<p>Student: {{ project.name }}</p>
+<p>Project Amount: ₹{{ project.project_amount }}</p>
+<p>Total Paid: ₹{{ total_paid }}</p>
+<p>Pending Amount: ₹{{ project.pending_amount }}</p>
+{{payment.paid_amount}}
+{{payment.tota1_amount}}
+
+{{pending_amount}}
+
+<h3>Project Information</h3>
+
+<p><strong>Project Title:</strong> {{ project.project_title }}</p>
+<p><strong>College:</strong> {{ project.college_name }}</p>
+<p><strong>Department:</strong> {{ project.department }}</p>
+<p><strong>Domain:</strong> {{ project.domain }}</p>
+<p><strong>Reference No:</strong> {{ project.reference_no }}</p>
+
+<hr>
+
+<h3>Set Project Amount (Admin)</h3>
+
+
+
+<form method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Save Payment</button>
+</form>

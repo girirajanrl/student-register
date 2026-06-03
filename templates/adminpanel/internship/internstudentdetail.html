@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    {% include 'adminpanel/admin_sidebar.html' %}
+  {% include 'adminpanel/bootrapp_load.html' %}
+<p>Name : {{student.name}}</p>
+<p>Contact No :{{student.contact_No}}</p>
+<p>Whatsapp No :{{student.whatsapp_no}}</p>
+<p>Email : {{student.email}}</p>
+<p>College name :{{student.college_name}}</p>
+<p>Degree :{{student.degree}}</p>
+<p>Department :{{student.department_name}}</p>
+<p>JoinDate :{{student.join_date}}</p>
+<p>EndDate :{{student.end_date}}</p>
+<p>Reference ID :{{student.referenceid}}</p>
+<p>{{student.name}} Amount :{{student.inter_amount}}</p>
+</body>
+</html>

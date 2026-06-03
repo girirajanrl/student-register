@@ -1,0 +1,128 @@
+    {% include 'adminpanel/admin_sidebar.html' %}
+  {% include 'adminpanel/bootrapp_load.html' %}
+<style>
+.custom-color{
+
+    color: rgb(26, 26, 113);
+}
+.custom-colorth{
+    background: linear-gradient(to right, #90bfce, #4f46e5);
+}
+
+</style>
+<table class="table table-bordered" id="datatablesSimple">
+
+    <thead>
+
+        <tr>
+
+            <th>Project Title</th>
+            <th>College</th>
+            <th>Department</th>
+            <th>Domain</th>
+            <th>Amount</th>
+
+            <th>Member Name</th>
+            <th>Contact</th>
+            <th>Email</th>
+
+            <th>Status</th>
+
+        </tr>
+
+    </thead>
+
+    <tbody>
+
+        {% for project in students %}
+
+            {% for member in project.members.all %}
+
+                <tr>
+
+                    {% if forloop.first %}
+
+                        <td rowspan="{{ project.members.count }}">
+                            {{ project.project_title }}
+                        </td>
+
+                        <td rowspan="{{ project.members.count }}">
+                            {{ project.college_name }}
+                        </td>
+
+                        <td rowspan="{{ project.members.count }}">
+                            {{ project.department }}
+                        </td>
+
+                        <td rowspan="{{ project.members.count }}">
+                            {{ project.domain }}
+                        </td>
+
+                        <td rowspan="{{ project.members.count }}">
+                            {{ project.project_amount }}
+                        </td>
+
+                    {% endif %}
+
+                    <td>{{ member.member_name }}</td>
+
+                    <td>{{ member.member_contact }}</td>
+
+                    <td>{{ member.member_email }}</td>
+
+                    {% if forloop.first %}
+
+                        <td rowspan="{{ project.members.count }}">
+                            {{ project.status }}
+                        </td>
+
+                    {% endif %}
+
+                </tr>
+
+            {% empty %}
+
+                <tr>
+
+                    <td>{{ project.project_title }}</td>
+
+                    <td>{{ project.college_name }}</td>
+
+                    <td>{{ project.department }}</td>
+
+                    <td>{{ project.domain }}</td>
+
+                    <td>{{ project.project_amount }}</td>
+
+                    <td colspan="3">No Team Members</td>
+
+                    <td>{{ project.status }}</td>
+
+                </tr>
+
+            {% endfor %}
+
+        {% endfor %}
+
+    </tbody>
+
+</table>
+
+                </div>
+                        </div>
+                    </div>
+                </main>
+                <footer class="py-4 bg-light mt-auto">
+                    <div class="container-fluid px-4">
+                        <div class="d-flex align-items-center justify-content-between small">
+                            <div class="text-muted">Copyright &copy; Your Website 2023</div>
+                            <div>
+                                <a href="#">Privacy Policy</a>
+                                &middot;
+                                <a href="#">Terms &amp; Conditions</a>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    

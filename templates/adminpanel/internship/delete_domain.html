@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>delete_domain</title>
+</head>
+<body>
+         {% include 'boots.html' %}
+        {% include 'adminpanel/admin_sidebar.html' %}
+  {% include 'adminpanel/bootrapp_load.html' %}
+
+
+  <div class="container-fluid mt-4">
+
+ <div class="row text-center align-items-center h-100">
+
+        <div class="col-12">
+
+
+    <form action="" method="POST">
+
+        {% csrf_token %}
+            
+        <p>Are you sure you want delete the domain name</p>
+
+            <button class="btn btn-danger" type="submit">
+        Confirm Delete
+        </button>
+        <button class="btn btn-warning" type="submit"><a href="{% url 'adminpanel:list_domain'  %}"> NO</a></button>
+
+        </form> 
+        </div>
+
+      </div>
+
+      </div>
+</body>
+</html>

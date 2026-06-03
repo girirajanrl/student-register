@@ -1,0 +1,68 @@
+<h2>Student Detail</h2>
+
+
+
+<table border="1">
+
+    <tr>
+
+    <thead>
+<th>Project</th>
+<th>Total Amount</th>
+<th>Total Paid</th>
+<th>Pending Balance</th>
+<th>status</th>
+<th>addpayment</th>
+
+        </thead>
+    </tr>
+
+<tr>
+<td>{{student.project_title}}</td>
+<td>{{student.project_amount}}</td>
+<td>{{student.total_paid}}</td>
+<td>{{student.pending_balance}}</td>
+<td>{{ student.payment_status }}</td>
+<td><a href="{% url 'add_payment' student.id %}">
+    Add Payment
+</a></td>
+</tr>
+
+</table>
+
+<h3>Payment History</h3>
+
+{% for payment in payments %}
+
+    <p>
+        Paid: {{ payment.paid_amount }}
+        -
+        {{ payment.payment_mode }}
+    </p>
+
+{% empty %}
+
+    <p>No payments found</p>
+
+{% endfor %}
+
+<h3>Team Members</h3>
+<table border="1">
+<tr>
+   <th> Member Name</th>
+   <th>Member Email</th>
+   <th>Member Department</th>
+   <th>Member Phone Number</th>
+</tr>
+{% for member in members %}
+<tr>
+<td>{{ member.member_name }}</td>
+<td>{{ member.member_email}}</td>
+<td>{{ member.member_department }}</td>
+<td>{{ member.member_contact }}</td>
+</tr>
+
+{% endfor %}
+</table>
+
+

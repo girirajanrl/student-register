@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>delete_duartion</title>
+</head>
+<body>
+     {% include 'adminpanel/admin_sidebar.html' %}
+  {% include 'adminpanel/bootrapp_load.html' %}
+    
+    <form action="" method="POST">
+
+        {% csrf_token %}
+            
+        <p>Are you sure you want delete the duration name</p>
+
+            <button type="submit">
+        Confirm Delete
+    </button>
+ <button type="submit"><a href="{% url 'adminpanel:list_duration'  %}"> NO</a></button>
+    </form>
+</body>
+</html>

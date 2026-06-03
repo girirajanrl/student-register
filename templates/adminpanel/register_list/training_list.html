@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ 
+    {% include 'adminpanel/bootrapp_load.html' %}
+
+    <title>Domains</title>
+
+    <style>
+.col-4{
+
+    background-color: aqua;
+
+    border: 2px solid;
+
+}
+
+.col-8{
+
+    background-color: antiquewhite;
+
+    border:2px solid;
+}
+
+.custom-color{
+
+    color: rgb(26, 26, 113);
+}
+.custom-colorth{
+    background: linear-gradient(to right, #90bfce, #4f46e5);
+}
+
+    </style>
+</head>
+
+<body class="sb-nav-fixed bg-light">
+
+    <!-- Sidebar -->
+    {% include 'adminpanel/admin_sidebar.html' %}
+
+    <div id="layoutSidenav_content">
+
+    <main>
+
+        <div class="container-fluid px-4 mt-4">
+
+            <!-- Heading -->
+            <div class="d-flex justify-content-between align-items-center mb-4">    
+
+                <h2 class="fw-bold custom-color">
+                    Training Registeration List
+                </h2>
+
+             
+            </div>
+
+            <!-- Row -->
+            <div class="row">
+
+                <!-- Full Width Column -->
+                <div class="col-12">
+
+                    <!-- Card -->
+                    <div class="card shadow border-0 rounded-4">
+
+                        <div class="card-body">
+
+                            <div class="table-responsive">
+
+                                <table class="table table-hover table-bordered align-middle text-center">
+
+                                    <thead class="custom-colorth">
+
+                                        <tr>
+                                            <th>No</th>
+                                            <th>Student Name</th>
+                                            <th>Contact No</th>
+                                            <th>Whatsapp No</th>
+                                             <th>Email</th>
+                                            <th>College Name</th>
+                                            <th>Degree</th>
+                                            <th>Join Date</th>
+                                              <th>End Date</th>
+                                            <th>Domain</th>
+                                            <th>Duration</th>
+                                            <th>Mode</th>
+                                             <th>View</th>
+                                       
+                                        </tr>
+
+                                    </thead>
+
+                                    <tbody>
+
+                                        {% for list_train in list_training %}
+
+                                        <tr>
+
+                                            <td>{{ forloop.counter }}</td>
+
+                                            <td>{{ list_train.name}}</td>
+                                            <td>{{ list_train.contact_No}}</td>
+                                            <td>{{ list_train.whatsapp_no}}</td>
+                                            <td>{{ list_train.email}}</td>
+                                            <td>{{ list_train.college_name}}</td>
+                                            <td>{{ list_train.degree}}</td>
+                                            <td>{{ list_train.join_date}}</td>
+                                            <td>{{ list_train.end_date}}</td>
+                                             <td>{{ list_train.domain}}</td>
+                                            <td>{{ list_train.duration}}</td>
+                                            <td>{{ list_train.intership_mode}}</td>
+                                           
+                                            
+                                            
+
+                                            <td>
+                                                <a href="{% url 'adminpanel:update_duration' list_train.id %}"
+                                                   class="btn btn-warning btn-sm">
+                                                   view
+                                                </a>
+                                            </td>
+
+                                       
+
+                                        </tr>
+
+                                        {% endfor %}
+
+                                    </tbody>
+
+                                </table>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+    
+
+        </div>
+
+    </main>
+
+</div>
+
+</body>
+</html>
