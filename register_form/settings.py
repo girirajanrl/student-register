@@ -78,15 +78,13 @@ WSGI_APPLICATION = "register_form.wsgi.application"
 # Database
 # https://docs.djangoproject.com/en/6.0/ref/settings/#databases
 
+import dj_database_url
+import os
+
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'register',
-        'USER': 'postgres',
-        'PASSWORD': 'girirajanrl',
-        'HOST': 'localhost',
-        'PORT': '5434',
-    }
+    'default': dj_database_url.parse(
+        os.environ.get("DATABASE_URL")
+    )
 }
 
 # Password validation
